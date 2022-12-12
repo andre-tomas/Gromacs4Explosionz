@@ -232,7 +232,7 @@ void atoms2md(gmx_mtop_t *mtop,t_inputrec *ir,
 
     // CHANGED   md->chargeA[i] = 2.0;
 
-      md->chargeA[i]	= 0.5; //atom->q;
+      //md->chargeA[i]	= 0.5; //atom->q;
 
     
 

@@ -579,6 +579,43 @@ void do_nonbonded(t_commrec *cr,t_forcerec *fr,
                     {
                         /* Call nonbonded kernel from function pointer */
                         
+						printf("CALLING POINTER!!\n");
+						//exit(0);
+
+                        nb_kernel110( &(nlist->nri),
+                                      nlist->iinr,
+                                      nlist->jindex,
+                                      nlist->jjnr,
+                                      nlist->shift,
+                                      fr->shift_vec[0],
+                                      fshift,
+                                      nlist->gid,
+                                      x[0],
+                                      f[0],
+                                      mdatoms->chargeA,
+                                      &(fr->epsfac),
+                                      &(fr->k_rf),
+                                      &(fr->c_rf),
+                                      egcoul,
+                                      mdatoms->typeA,
+                                      &(fr->ntype),
+                                      fr->nbfp,
+                                      egnb,
+                                      &(nblists->tab.scale),
+                                      tabledata,
+                                      fr->invsqrta,
+                                      fr->dvda,
+                                      &(fr->gbtabscale),
+                                      fr->gbtab.tab,
+                                      &nthreads,
+                                      &(nlist->count),
+                                      nlist->mtx,
+                                      &outeriter,
+                                      &inneriter,
+                                      (real *)&gbdata);
+
+                        if (1==2) {
+
                         (*kernelptr)( &(nlist->nri),
                                       nlist->iinr,
                                       nlist->jindex,
@@ -610,6 +647,9 @@ void do_nonbonded(t_commrec *cr,t_forcerec *fr,
                                       &outeriter,
                                       &inneriter,
                                       (real *)&gbdata);
+
+                    }
+
                     }
                 }
                 
@@ -677,6 +717,8 @@ do_listed_vdw_q(int ftype,int nbonds,
 #endif
 
     bMolPBC = fr->bMolPBC;
+
+    
 
     switch (ftype) {
     case F_LJ14:
@@ -873,7 +915,10 @@ do_listed_vdw_q(int ftype,int nbonds,
         else 
         { 
             /* Not perturbed - call kernel 330 */
-            nb_kernel330
+            //printf("CALLING 330 LJ 1-4!!\n");
+            
+           // nb_kernel330
+            nb_kernel100
                 ( &i1,
                   &i0,
                   j_index,

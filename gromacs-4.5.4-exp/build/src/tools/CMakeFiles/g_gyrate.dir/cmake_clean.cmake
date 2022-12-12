@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_gyrate.dir/g_gyrate.c.o"
-  "CMakeFiles/g_gyrate.dir/g_gyrate.c.o.d"
-  "g_gyrate"
   "g_gyrate.pdb"
+  "g_gyrate"
 )
 
 # Per-language clean rules from dependency scanning.

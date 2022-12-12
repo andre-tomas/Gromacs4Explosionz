@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_disre.dir/g_disre.c.o"
-  "CMakeFiles/g_disre.dir/g_disre.c.o.d"
-  "g_disre"
   "g_disre.pdb"
+  "g_disre"
 )
 
 # Per-language clean rules from dependency scanning.

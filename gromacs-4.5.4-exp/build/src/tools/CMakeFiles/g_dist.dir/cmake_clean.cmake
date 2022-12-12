@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_dist.dir/g_dist.c.o"
-  "CMakeFiles/g_dist.dir/g_dist.c.o.d"
-  "g_dist"
   "g_dist.pdb"
+  "g_dist"
 )
 
 # Per-language clean rules from dependency scanning.

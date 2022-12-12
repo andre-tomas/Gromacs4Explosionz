@@ -1919,7 +1919,7 @@ void write_dd_pdb(const char *fn,gmx_large_int_t step,const char *title,
                   int natoms,rvec x[],matrix box)
 {
     char fname[STRLEN],format[STRLEN],format4[STRLEN],buf[22];
-    FILE *out;
+    //FILE *out;
     int  i,ii,resnr,c;
     char *atomname,*resname;
     real b;
@@ -1931,18 +1931,30 @@ void write_dd_pdb(const char *fn,gmx_large_int_t step,const char *title,
         natoms = dd->comm->nat[ddnatVSITE];
     }
     
-    sprintf(fname,"%s_%s_n%d.pdb",fn,gmx_step_str(step,buf),cr->sim_nodeid);
+    printf("Updating slice of system on MPI processes!\n");
+    //printf("NUMBER OF ATOMS: %i", natoms);
+    //sprintf(fname,"%s_%s_n%d.pdb",fn,gmx_step_str(step,buf),cr->sim_nodeid);
+    sprintf(fname,"MPI_slice_n%d.pdb",cr->sim_nodeid);
     
     sprintf(format,"%s%s\n",pdbformat,"%6.2f%6.2f");
     sprintf(format4,"%s%s\n",pdbformat4,"%6.2f%6.2f");
+
+    FILE *out = fopen(fname, "w");
     
-    out = gmx_fio_fopen(fname,"w");
+    //out = gmx_fio_fopen(fname,"w");
+   // FILE *MPI_rank_topology_atoms = fopen("name_of_file", "w"); // write only 
     
-    fprintf(out,"TITLE     %s\n",title);
-    gmx_write_pdb_box(out,dd->bScrewPBC ? epbcSCREW : epbcXYZ,box);
+
+
+   // fprintf(out,"TITLE     %s\n",title);
+    //gmx_write_pdb_box(out,dd->bScrewPBC ? epbcSCREW : epbcXYZ,box);
+
+
     for(i=0; i<natoms; i++)
     {
+
         ii = dd->gatindex[i];
+        //printf("ii: %i\n", ii);
         gmx_mtop_atominfo_global(mtop,ii,&atomname,&resnr,&resname);
         if (i < dd->comm->nat[ddnatZONE])
         {
@@ -1961,14 +1973,21 @@ void write_dd_pdb(const char *fn,gmx_large_int_t step,const char *title,
         {
             b = dd->comm->zones.n + 1;
         }
-        fprintf(out,strlen(atomname)<4 ? format : format4,
-                "ATOM",(ii+1)%100000,
-                atomname,resname,' ',resnr%10000,' ',
-                10*x[i][XX],10*x[i][YY],10*x[i][ZZ],1.0,b);
+        //fprintf(out,strlen(atomname)<4 ? format : format4,
+        //        "ATOM",(ii+1)%100000,
+         //       atomname,resname,' ',resnr%10000,' ',
+          //      10*x[i][XX],10*x[i][YY],10*x[i][ZZ],1.0,b);
+
+       // char dd_output_name = [20];
+        //dd_output_name = 
+        fprintf(out,"%i\n", (ii+1));
+
+       // fprintf(out,(ii+1)%100000));
     }
-    fprintf(out,"TER\n");
+    //fprintf(out,"TER\n");
     
-    gmx_fio_fclose(out);
+    fclose(out);
+    //gmx_fio_fclose(out);
 }
 
 real dd_cutoff_mbody(gmx_domdec_t *dd)
@@ -8477,10 +8496,10 @@ void dd_partition_system(FILE            *fplog,
     /* Set the charge group boundaries for neighbor searching */
     set_cg_boundaries(&comm->zones);
     
-    /*
+    
     write_dd_pdb("dd_home",step,"dump",top_global,cr,
                  -1,state_local->x,state_local->box);
-    */
+    
     
     /* Extract a local topology from the global topology */
     for(i=0; i<dd->ndim; i++)

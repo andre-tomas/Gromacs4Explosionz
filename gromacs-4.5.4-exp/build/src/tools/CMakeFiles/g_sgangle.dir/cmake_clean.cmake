@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_sgangle.dir/g_sgangle.c.o"
-  "CMakeFiles/g_sgangle.dir/g_sgangle.c.o.d"
-  "g_sgangle"
   "g_sgangle.pdb"
+  "g_sgangle"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_saltbr.dir/g_saltbr.c.o"
-  "CMakeFiles/g_saltbr.dir/g_saltbr.c.o.d"
-  "g_saltbr"
   "g_saltbr.pdb"
+  "g_saltbr"
 )
 
 # Per-language clean rules from dependency scanning.

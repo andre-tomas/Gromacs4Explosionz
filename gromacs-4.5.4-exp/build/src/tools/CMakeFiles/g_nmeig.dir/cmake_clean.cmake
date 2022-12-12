@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_nmeig.dir/g_nmeig.c.o"
-  "CMakeFiles/g_nmeig.dir/g_nmeig.c.o.d"
-  "g_nmeig"
   "g_nmeig.pdb"
+  "g_nmeig"
 )
 
 # Per-language clean rules from dependency scanning.

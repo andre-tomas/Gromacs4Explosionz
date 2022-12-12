@@ -1,8 +1,8 @@
-# Install script for directory: /home/tomas/programs/gromacs-4.5.4/gromacs-4.5.4-exp/src/gmxlib
+# Install script for directory: /home/ibrahim/projects/hybrid-plasma-md-code/Gromacs4Explosionz/gromacs-4.5.4-exp/src/gmxlib
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/tomas/programs/gromacs-4.5.4-explosion")
+  set(CMAKE_INSTALL_PREFIX "/home/ibrahim/programs/gromacs-4.5.4-explosion")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -29,84 +29,59 @@ endif()
 
 # Install shared libraries without execute permission?
 if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
-  set(CMAKE_INSTALL_SO_NO_EXE "1")
+  set(CMAKE_INSTALL_SO_NO_EXE "0")
 endif()
 
-# Is this installation the result of a crosscompile?
-if(NOT DEFINED CMAKE_CROSSCOMPILING)
-  set(CMAKE_CROSSCOMPILING "FALSE")
-endif()
-
-# Set default install directory permissions.
-if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/usr/bin/objdump")
-endif()
-
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xlibrariesx" OR NOT CMAKE_INSTALL_COMPONENT)
-  if(EXISTS "$ENV{DESTDIR}/home/tomas/programs/gromacs-4.5.4-explosion/lib/libgmx.so.6" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/home/tomas/programs/gromacs-4.5.4-explosion/lib/libgmx.so.6")
-    file(RPATH_CHECK
-         FILE "$ENV{DESTDIR}/home/tomas/programs/gromacs-4.5.4-explosion/lib/libgmx.so.6"
-         RPATH "/home/tomas/programs/gromacs-4.5.4-explosion/lib")
-  endif()
-  list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/tomas/programs/gromacs-4.5.4-explosion/lib/libgmx.so.6")
-  if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
-    message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
-  endif()
-  if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-    message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
-  endif()
-  file(INSTALL DESTINATION "/home/tomas/programs/gromacs-4.5.4-explosion/lib" TYPE SHARED_LIBRARY FILES "/home/tomas/programs/gromacs-4.5.4/gromacs-4.5.4-exp/build/src/gmxlib/libgmx.so.6")
-  if(EXISTS "$ENV{DESTDIR}/home/tomas/programs/gromacs-4.5.4-explosion/lib/libgmx.so.6" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/home/tomas/programs/gromacs-4.5.4-explosion/lib/libgmx.so.6")
-    file(RPATH_CHANGE
-         FILE "$ENV{DESTDIR}/home/tomas/programs/gromacs-4.5.4-explosion/lib/libgmx.so.6"
-         OLD_RPATH "::::::::::::::::::::::::::::::::::::::::::::::::"
-         NEW_RPATH "/home/tomas/programs/gromacs-4.5.4-explosion/lib")
-    if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/home/tomas/programs/gromacs-4.5.4-explosion/lib/libgmx.so.6")
+if("${CMAKE_INSTALL_COMPONENT}" STREQUAL "libraries" OR NOT CMAKE_INSTALL_COMPONENT)
+  foreach(file
+      "$ENV{DESTDIR}/home/ibrahim/programs/gromacs-4.5.4-explosion/lib/libgmx.so.6"
+      "$ENV{DESTDIR}/home/ibrahim/programs/gromacs-4.5.4-explosion/lib/libgmx.so"
+      )
+    if(EXISTS "${file}" AND
+       NOT IS_SYMLINK "${file}")
+      file(RPATH_CHECK
+           FILE "${file}"
+           RPATH "/home/ibrahim/programs/gromacs-4.5.4-explosion/lib")
     endif()
-  endif()
-endif()
-
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xlibrariesx" OR NOT CMAKE_INSTALL_COMPONENT)
-  if(EXISTS "$ENV{DESTDIR}/home/tomas/programs/gromacs-4.5.4-explosion/lib/libgmx.so" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/home/tomas/programs/gromacs-4.5.4-explosion/lib/libgmx.so")
-    file(RPATH_CHECK
-         FILE "$ENV{DESTDIR}/home/tomas/programs/gromacs-4.5.4-explosion/lib/libgmx.so"
-         RPATH "/home/tomas/programs/gromacs-4.5.4-explosion/lib")
-  endif()
+  endforeach()
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/tomas/programs/gromacs-4.5.4-explosion/lib/libgmx.so")
+   "/home/ibrahim/programs/gromacs-4.5.4-explosion/lib/libgmx.so.6;/home/ibrahim/programs/gromacs-4.5.4-explosion/lib/libgmx.so")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/home/tomas/programs/gromacs-4.5.4-explosion/lib" TYPE SHARED_LIBRARY FILES "/home/tomas/programs/gromacs-4.5.4/gromacs-4.5.4-exp/build/src/gmxlib/libgmx.so")
-  if(EXISTS "$ENV{DESTDIR}/home/tomas/programs/gromacs-4.5.4-explosion/lib/libgmx.so" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/home/tomas/programs/gromacs-4.5.4-explosion/lib/libgmx.so")
-    file(RPATH_CHANGE
-         FILE "$ENV{DESTDIR}/home/tomas/programs/gromacs-4.5.4-explosion/lib/libgmx.so"
-         OLD_RPATH "::::::::::::::::::::::::::::::::::::::::::::::::"
-         NEW_RPATH "/home/tomas/programs/gromacs-4.5.4-explosion/lib")
-    if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/home/tomas/programs/gromacs-4.5.4-explosion/lib/libgmx.so")
+file(INSTALL DESTINATION "/home/ibrahim/programs/gromacs-4.5.4-explosion/lib" TYPE SHARED_LIBRARY FILES
+    "/home/ibrahim/projects/hybrid-plasma-md-code/Gromacs4Explosionz/gromacs-4.5.4-exp/build/src/gmxlib/libgmx.so.6"
+    "/home/ibrahim/projects/hybrid-plasma-md-code/Gromacs4Explosionz/gromacs-4.5.4-exp/build/src/gmxlib/libgmx.so"
+    )
+  foreach(file
+      "$ENV{DESTDIR}/home/ibrahim/programs/gromacs-4.5.4-explosion/lib/libgmx.so.6"
+      "$ENV{DESTDIR}/home/ibrahim/programs/gromacs-4.5.4-explosion/lib/libgmx.so"
+      )
+    if(EXISTS "${file}" AND
+       NOT IS_SYMLINK "${file}")
+      file(RPATH_CHANGE
+           FILE "${file}"
+           OLD_RPATH "::::::::::::::::::::::::::::::::::::::::::::::::::"
+           NEW_RPATH "/home/ibrahim/programs/gromacs-4.5.4-explosion/lib")
+      if(CMAKE_INSTALL_DO_STRIP)
+        execute_process(COMMAND "/usr/bin/strip" "${file}")
+      endif()
     endif()
-  endif()
+  endforeach()
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xdevelopmentx" OR NOT CMAKE_INSTALL_COMPONENT)
+if("${CMAKE_INSTALL_COMPONENT}" STREQUAL "development" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/tomas/programs/gromacs-4.5.4-explosion/lib/pkgconfig/libgmx.pc")
+   "/home/ibrahim/programs/gromacs-4.5.4-explosion/lib/pkgconfig/libgmx.pc")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/home/tomas/programs/gromacs-4.5.4-explosion/lib/pkgconfig" TYPE FILE RENAME "libgmx.pc" FILES "/home/tomas/programs/gromacs-4.5.4/gromacs-4.5.4-exp/build/src/gmxlib/libgmx.pc")
+file(INSTALL DESTINATION "/home/ibrahim/programs/gromacs-4.5.4-explosion/lib/pkgconfig" TYPE FILE RENAME "libgmx.pc" FILES "/home/ibrahim/projects/hybrid-plasma-md-code/Gromacs4Explosionz/gromacs-4.5.4-exp/build/src/gmxlib/libgmx.pc")
 endif()
 

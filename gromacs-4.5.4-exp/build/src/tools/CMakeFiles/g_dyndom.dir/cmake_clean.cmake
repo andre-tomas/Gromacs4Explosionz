@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_dyndom.dir/g_dyndom.c.o"
-  "CMakeFiles/g_dyndom.dir/g_dyndom.c.o.d"
-  "g_dyndom"
   "g_dyndom.pdb"
+  "g_dyndom"
 )
 
 # Per-language clean rules from dependency scanning.

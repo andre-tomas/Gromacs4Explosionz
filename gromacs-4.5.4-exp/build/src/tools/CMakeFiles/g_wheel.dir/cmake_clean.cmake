@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_wheel.dir/g_wheel.c.o"
-  "CMakeFiles/g_wheel.dir/g_wheel.c.o.d"
-  "g_wheel"
   "g_wheel.pdb"
+  "g_wheel"
 )
 
 # Per-language clean rules from dependency scanning.

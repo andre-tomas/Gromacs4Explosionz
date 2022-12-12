@@ -20,16 +20,16 @@
 /* #undef USE_VERSION_H */
 
 /* Default location of data files */
-#define GMXLIBDIR "/home/tomas/programs/gromacs-4.5.4-explosion/share/gromacs/top"
+#define GMXLIBDIR "/home/ibrahim/programs/gromacs-4.5.4-explosion/share/gromacs/top"
 
 /* Hardware and OS version for build host */
-#define BUILD_MACHINE "Linux 5.15.0-48-generic x86_64"
+#define BUILD_MACHINE "Linux 3.10.0-1160.11.1.el7.x86_64 x86_64"
 
 /* Date and time for build */
-#define BUILD_TIME "fre 21 okt 2022 11:25:17 CEST"
+#define BUILD_TIME "Thu Oct 27 17:13:56 CEST 2022"
 
 /* User doing build */
-#define BUILD_USER "tomas@laptop-tomas [CMAKE]"
+#define BUILD_USER "ibrahim@login.davinci [CMAKE]"
 
 /* Turn off water-water neighborlist optimization only */
 /* #undef DISABLE_WATERWATER_NLIST */
@@ -107,7 +107,7 @@
 /* #undef GMX_INTEGER_BIG_ENDIAN */
 
 /* Use our own instead of system XDR libraries */
-#define GMX_INTERNAL_XDR
+/* #undef GMX_INTERNAL_XDR */
 
 /* Use MPI (with mpicc) for parallelization */
 /* #undef GMX_LIB_MPI */
@@ -327,10 +327,10 @@
 #define HAVE_SYS_TIME_H
 
 /* Define to 1 if you have the <rpc/rpc.h> header file. */
-/* #undef HAVE_RPC_RPC_H */
+#define HAVE_RPC_RPC_H
 
 /* Define to 1 if you have the <rpc/xdr.h> header file. */
-/* #undef HAVE_RPC_XDR_H */
+#define HAVE_RPC_XDR_H
 
 /* Define to 1 if yo have the <xmmintrin.h> header file. */
 #define HAVE_XMMINTRIN_H
@@ -339,10 +339,10 @@
 #define HAVE_EMMINTRIN_H
 
 /* Define to 1 if yo have the <pmmintrin.h> header file. */
-#define HAVE_PMMINTRIN_H
+/* #undef HAVE_PMMINTRIN_H */
 
 /* Define to 1 if yo have the <smmintrin.h> header file. */
-#define HAVE_SMMINTRIN_H
+/* #undef HAVE_SMMINTRIN_H */
 
 /* Define for sched.h (this is for thread_mpi)*/
 #define HAVE_SCHED_H

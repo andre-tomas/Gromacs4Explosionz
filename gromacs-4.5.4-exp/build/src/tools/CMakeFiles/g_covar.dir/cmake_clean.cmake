@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_covar.dir/g_covar.c.o"
-  "CMakeFiles/g_covar.dir/g_covar.c.o.d"
-  "g_covar"
   "g_covar.pdb"
+  "g_covar"
 )
 
 # Per-language clean rules from dependency scanning.

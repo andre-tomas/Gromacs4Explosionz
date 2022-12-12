@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_membed.dir/g_membed.c.o"
-  "CMakeFiles/g_membed.dir/g_membed.c.o.d"
-  "g_membed"
   "g_membed.pdb"
+  "g_membed"
 )
 
 # Per-language clean rules from dependency scanning.

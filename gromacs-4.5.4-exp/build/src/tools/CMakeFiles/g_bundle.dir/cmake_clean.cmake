@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_bundle.dir/g_bundle.c.o"
-  "CMakeFiles/g_bundle.dir/g_bundle.c.o.d"
-  "g_bundle"
   "g_bundle.pdb"
+  "g_bundle"
 )
 
 # Per-language clean rules from dependency scanning.

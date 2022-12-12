@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_rotmat.dir/g_rotmat.c.o"
-  "CMakeFiles/g_rotmat.dir/g_rotmat.c.o.d"
-  "g_rotmat"
   "g_rotmat.pdb"
+  "g_rotmat"
 )
 
 # Per-language clean rules from dependency scanning.

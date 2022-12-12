@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_anadock.dir/g_anadock.c.o"
-  "CMakeFiles/g_anadock.dir/g_anadock.c.o.d"
-  "g_anadock"
   "g_anadock.pdb"
+  "g_anadock"
 )
 
 # Per-language clean rules from dependency scanning.

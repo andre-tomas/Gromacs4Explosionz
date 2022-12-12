@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_density.dir/g_density.c.o"
-  "CMakeFiles/g_density.dir/g_density.c.o.d"
-  "g_density"
   "g_density.pdb"
+  "g_density"
 )
 
 # Per-language clean rules from dependency scanning.

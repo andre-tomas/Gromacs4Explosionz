@@ -87,7 +87,7 @@ gmx_nb_generic_kernel(t_nblist *           nlist,
 
 	
 	// test
-	//printf("TEST: %lf\n", debye_length);
+	//printf("DEBYE LENGTH IN nb_generic.c: %lf\n", debye_length);
 	
 	icoul               = nlist->icoul;
 	ivdw                = nlist->ivdw;
@@ -161,16 +161,22 @@ gmx_nb_generic_kernel(t_nblist *           nlist,
 			if(icoul>0)
 			{
 				qq               = iq*charge[jnr]; 
+				//printf("CHARGES IN nb_generic.c: %lf, %lf, \n", charge[ii], charge[jnr]);
+				debye_length = 0.01;
+
 
 				switch(icoul)
 				{
 					case 1:
+						r                = rsq*rinv;
 					/* Vanilla cutoff coulomb */
 						//vcoul            = qq*rinv;      
 						//fscal            = vcoul*rinvsq; 
 						// Coulomb with Debye
-						vcoul            = qq*rinv*exp((-r)/debye_length);      
-						fscal            = vcoul*rinvcu*((r + debye_length)/(debye_length))*exp((-r)/debye_length); 
+						vcoul            = qq*rinv*exp((-r)/debye_length);   
+						fscal            = vcoul*rinvsq*((r + debye_length)/(debye_length));   
+						//fscal            = qq*rinvcu*((r + debye_length)/(debye_length))*exp((-r)/debye_length);     
+						//fscal            = vcoul*rinvcu*((r + debye_length)/(debye_length))*exp((-r)/debye_length); 
 						break;
 
 					case 2:
@@ -225,7 +231,7 @@ gmx_nb_generic_kernel(t_nblist *           nlist,
 
 
 						// LJ with ionization screening
-						Vvdwtot  			 = (Vvdw_rep-Vvdw_disp)*exp((-r)/debye_length);
+						Vvdwtot  		 = (Vvdw_rep-Vvdw_disp)*exp((-r)/debye_length);
 						fscal  		     = -1*(c12*exp((-r)/debye_length)*((-1*(rinvsix*rinvsix))/(debye_length) - 12*rinvsix*rinvsix*rinv) + c6*exp((-r)/debye_length)*(rinvsix/debye_length + 6*rinvsix*rinv))*rinv;
 
 

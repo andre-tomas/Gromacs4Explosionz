@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_rmsf.dir/g_rmsf.c.o"
-  "CMakeFiles/g_rmsf.dir/g_rmsf.c.o.d"
-  "g_rmsf"
   "g_rmsf.pdb"
+  "g_rmsf"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_bond.dir/g_bond.c.o"
-  "CMakeFiles/g_bond.dir/g_bond.c.o.d"
-  "g_bond"
   "g_bond.pdb"
+  "g_bond"
 )
 
 # Per-language clean rules from dependency scanning.

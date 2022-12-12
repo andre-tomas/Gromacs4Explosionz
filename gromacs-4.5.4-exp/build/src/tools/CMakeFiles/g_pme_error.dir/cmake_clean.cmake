@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_pme_error.dir/g_pme_error.c.o"
-  "CMakeFiles/g_pme_error.dir/g_pme_error.c.o.d"
-  "g_pme_error"
   "g_pme_error.pdb"
+  "g_pme_error"
 )
 
 # Per-language clean rules from dependency scanning.

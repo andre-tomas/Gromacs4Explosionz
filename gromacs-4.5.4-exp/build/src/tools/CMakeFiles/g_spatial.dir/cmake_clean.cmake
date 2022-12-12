@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_spatial.dir/g_spatial.c.o"
-  "CMakeFiles/g_spatial.dir/g_spatial.c.o.d"
-  "g_spatial"
   "g_spatial.pdb"
+  "g_spatial"
 )
 
 # Per-language clean rules from dependency scanning.

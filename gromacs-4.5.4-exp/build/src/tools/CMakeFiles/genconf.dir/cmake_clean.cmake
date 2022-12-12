@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/genconf.dir/genconf.c.o"
-  "CMakeFiles/genconf.dir/genconf.c.o.d"
-  "genconf"
   "genconf.pdb"
+  "genconf"
 )
 
 # Per-language clean rules from dependency scanning.

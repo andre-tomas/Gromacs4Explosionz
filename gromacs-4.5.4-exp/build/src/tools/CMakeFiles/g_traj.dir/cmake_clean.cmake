@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_traj.dir/g_traj.c.o"
-  "CMakeFiles/g_traj.dir/g_traj.c.o.d"
-  "g_traj"
   "g_traj.pdb"
+  "g_traj"
 )
 
 # Per-language clean rules from dependency scanning.

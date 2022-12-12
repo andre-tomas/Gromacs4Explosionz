@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/make_ndx.dir/make_ndx.c.o"
-  "CMakeFiles/make_ndx.dir/make_ndx.c.o.d"
-  "make_ndx"
   "make_ndx.pdb"
+  "make_ndx"
 )
 
 # Per-language clean rules from dependency scanning.

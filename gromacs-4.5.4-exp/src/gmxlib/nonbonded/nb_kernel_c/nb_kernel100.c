@@ -47,6 +47,8 @@
  * water optimization:      No
  * Calculate forces:        yes
  */
+
+double debye_length;
 void nb_kernel100(
                     int *           p_nri,
                     int *           iinr,
@@ -91,7 +93,7 @@ void nb_kernel100(
     real          qq,vcoul,vctot;
     real          ix1,iy1,iz1,fix1,fiy1,fiz1;
     real          jx1,jy1,jz1;
-    real          dx11,dy11,dz11,rsq11,rinv11;
+    real          dx11,dy11,dz11,rsq11,rinv11,r;
 
     nri              = *p_nri;         
     ntype            = *p_ntype;       
@@ -104,8 +106,10 @@ void nb_kernel100(
     /* Reset outer and inner iteration counters */
     nouter           = 0;              
     ninner           = 0;              
-
+   // printf("DEBYE LENGTH IN LJ nbkernel100.c: %lf\n", debye_length);
     /* Loop over thread workunits */
+
+	debye_length = 1000;
     
     do
     {
@@ -177,13 +181,15 @@ void nb_kernel100(
 
                 /* Calculate 1/r and 1/r2 */
                 rinv11           = gmx_invsqrt(rsq11);
+				r 				 = rsq11*rinv11;
 
                 /* Load parameters for j atom */
                 qq               = iq*charge[jnr]; 
                 rinvsq           = rinv11*rinv11;  
 
                 /* Coulomb interaction */
-                vcoul            = qq*rinv11;      
+                //vcoul            = qq*rinv11;   old Coulomb
+				vcoul            = qq*rinv11*((r + debye_length)/(debye_length))*exp((-r)/debye_length);      
                 vctot            = vctot+vcoul;    
                 fscal            = (vcoul)*rinvsq; 
 

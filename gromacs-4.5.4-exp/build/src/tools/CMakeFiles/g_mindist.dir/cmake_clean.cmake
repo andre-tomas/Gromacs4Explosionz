@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_mindist.dir/g_mindist.c.o"
-  "CMakeFiles/g_mindist.dir/g_mindist.c.o.d"
-  "g_mindist"
   "g_mindist.pdb"
+  "g_mindist"
 )
 
 # Per-language clean rules from dependency scanning.

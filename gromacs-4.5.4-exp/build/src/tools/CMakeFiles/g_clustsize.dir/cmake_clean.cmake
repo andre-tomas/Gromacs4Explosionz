@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_clustsize.dir/g_clustsize.c.o"
-  "CMakeFiles/g_clustsize.dir/g_clustsize.c.o.d"
-  "g_clustsize"
   "g_clustsize.pdb"
+  "g_clustsize"
 )
 
 # Per-language clean rules from dependency scanning.

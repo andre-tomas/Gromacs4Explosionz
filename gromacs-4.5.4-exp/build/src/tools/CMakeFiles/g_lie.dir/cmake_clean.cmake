@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_lie.dir/g_lie.c.o"
-  "CMakeFiles/g_lie.dir/g_lie.c.o.d"
-  "g_lie"
   "g_lie.pdb"
+  "g_lie"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_tcaf.dir/g_tcaf.c.o"
-  "CMakeFiles/g_tcaf.dir/g_tcaf.c.o.d"
-  "g_tcaf"
   "g_tcaf.pdb"
+  "g_tcaf"
 )
 
 # Per-language clean rules from dependency scanning.

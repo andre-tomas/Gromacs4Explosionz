@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_rdf.dir/g_rdf.c.o"
-  "CMakeFiles/g_rdf.dir/g_rdf.c.o.d"
-  "g_rdf"
   "g_rdf.pdb"
+  "g_rdf"
 )
 
 # Per-language clean rules from dependency scanning.

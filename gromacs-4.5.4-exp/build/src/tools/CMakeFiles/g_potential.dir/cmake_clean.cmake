@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_potential.dir/g_potential.c.o"
-  "CMakeFiles/g_potential.dir/g_potential.c.o.d"
-  "g_potential"
   "g_potential.pdb"
+  "g_potential"
 )
 
 # Per-language clean rules from dependency scanning.

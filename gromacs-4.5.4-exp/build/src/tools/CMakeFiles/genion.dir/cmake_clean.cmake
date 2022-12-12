@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/genion.dir/genion.c.o"
-  "CMakeFiles/genion.dir/genion.c.o.d"
-  "genion"
   "genion.pdb"
+  "genion"
 )
 
 # Per-language clean rules from dependency scanning.

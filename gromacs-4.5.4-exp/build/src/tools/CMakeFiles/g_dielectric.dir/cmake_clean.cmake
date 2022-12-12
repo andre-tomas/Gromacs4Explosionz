@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_dielectric.dir/g_dielectric.c.o"
-  "CMakeFiles/g_dielectric.dir/g_dielectric.c.o.d"
-  "g_dielectric"
   "g_dielectric.pdb"
+  "g_dielectric"
 )
 
 # Per-language clean rules from dependency scanning.

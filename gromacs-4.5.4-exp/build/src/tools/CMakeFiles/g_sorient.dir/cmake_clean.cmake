@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_sorient.dir/g_sorient.c.o"
-  "CMakeFiles/g_sorient.dir/g_sorient.c.o.d"
-  "g_sorient"
   "g_sorient.pdb"
+  "g_sorient"
 )
 
 # Per-language clean rules from dependency scanning.

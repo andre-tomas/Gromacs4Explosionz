@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_protonate.dir/g_protonate.c.o"
-  "CMakeFiles/g_protonate.dir/g_protonate.c.o.d"
-  "g_protonate"
   "g_protonate.pdb"
+  "g_protonate"
 )
 
 # Per-language clean rules from dependency scanning.

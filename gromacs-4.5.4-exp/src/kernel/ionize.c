@@ -272,6 +272,7 @@ t_cross_atom *mk_cross_atom(FILE *log,t_mdatoms *md,
     ca[i].n = 0;
     ca[i].k = 0;
     /* This code does not work for domain decomposition */
+	printf("In ionize.c \n");
     gmx_mtop_atominfo_global(mtop,i,&cc,&resnr,&resname);
     for(j=0; (j<NELEM); j++)
       if (strncmp(cc,element[j].name,strlen(element[j].name)) == 0) {
@@ -582,12 +583,12 @@ void ionize(FILE *fp,const output_env_t oenv,t_mdatoms *md,gmx_mtop_t *mtop,
   if (bFirst) {
     /* Get parameters for gaussian photon pulse from inputrec */
     t0       = ir->userreal1;  /* Peak of the gaussian pulse            */
-    nphot    = ir->userreal2;  /* Intensity                             */
-    width    = ir->userreal3;  /* Width of the peak (in time)           */
+    nphot    = 2;//ir->userreal2;  /* Intensity                             */
+    width    = 5;//ir->userreal3;  /* Width of the peak (in time)           */
     rho      = ir->userreal4;  /* Diameter of the focal spot (nm)       */
     ionize_seed= ir->userint1;   /* Random seed for stochastic ionization */
     ephot    = ir->userint2;   /* Energy of the photons                 */
-    mode     = ir->userint3;   /* Mode of ionizing                      */
+    mode     = 0;//ir->userint3;   /* Mode of ionizing                      */
     interval = 0.001*ir->userint4;   /* Interval between pulses (ps)    */
     gaussrand=gmx_rng_init(ionize_seed);
 	  
@@ -620,7 +621,11 @@ void ionize(FILE *fp,const output_env_t oenv,t_mdatoms *md,gmx_mtop_t *mtop,
       fprintf(fp,PREFIX"Modifying seed on parallel processor to %d\n",
 	      ionize_seed);
     }
-          
+             for(i=0; (i<cr->nodeid); i++) { 
+printf("Modifying seed on parallel processor to %d\n", ionize_seed);
+}
+
+	exit(0);
     for(Eindex=0; (Eindex < NENER) && (Energies[Eindex] != ephot); Eindex++)
       ;
     if (Eindex == NENER)

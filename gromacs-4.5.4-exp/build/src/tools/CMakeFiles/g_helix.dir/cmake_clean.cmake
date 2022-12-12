@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_helix.dir/g_helix.c.o"
-  "CMakeFiles/g_helix.dir/g_helix.c.o.d"
-  "g_helix"
   "g_helix.pdb"
+  "g_helix"
 )
 
 # Per-language clean rules from dependency scanning.
