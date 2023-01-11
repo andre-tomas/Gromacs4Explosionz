@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/gmxcheck.dir/gmxcheck.c.o"
-  "gmxcheck.pdb"
+  "CMakeFiles/gmxcheck.dir/gmxcheck.c.o.d"
   "gmxcheck"
+  "gmxcheck.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

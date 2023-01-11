@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_msd.dir/g_msd.c.o"
-  "g_msd.pdb"
+  "CMakeFiles/g_msd.dir/g_msd.c.o.d"
   "g_msd"
+  "g_msd.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

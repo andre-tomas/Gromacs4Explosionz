@@ -48,7 +48,7 @@
  * Calculate forces:        yes
  */
 
-double debye_length;
+extern double debye_length;
 void nb_kernel100(
                     int *           p_nri,
                     int *           iinr,

@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/trjorder.dir/trjorder.c.o"
-  "trjorder.pdb"
+  "CMakeFiles/trjorder.dir/trjorder.c.o.d"
   "trjorder"
+  "trjorder.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

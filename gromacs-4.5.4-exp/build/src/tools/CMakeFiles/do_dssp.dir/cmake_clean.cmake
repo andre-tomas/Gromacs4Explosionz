@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/do_dssp.dir/do_dssp.c.o"
-  "do_dssp.pdb"
+  "CMakeFiles/do_dssp.dir/do_dssp.c.o.d"
   "do_dssp"
+  "do_dssp.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

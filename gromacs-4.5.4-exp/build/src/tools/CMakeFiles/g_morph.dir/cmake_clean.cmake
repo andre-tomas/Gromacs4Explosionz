@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_morph.dir/g_morph.c.o"
-  "g_morph.pdb"
+  "CMakeFiles/g_morph.dir/g_morph.c.o.d"
   "g_morph"
+  "g_morph.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

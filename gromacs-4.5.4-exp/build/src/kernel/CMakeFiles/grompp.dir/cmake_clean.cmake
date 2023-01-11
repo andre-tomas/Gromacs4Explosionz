@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/grompp.dir/grompp.c.o"
-  "grompp.pdb"
+  "CMakeFiles/grompp.dir/grompp.c.o.d"
   "grompp"
+  "grompp.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

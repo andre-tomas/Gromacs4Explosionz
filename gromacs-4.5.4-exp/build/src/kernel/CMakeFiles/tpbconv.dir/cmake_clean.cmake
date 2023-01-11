@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/tpbconv.dir/tpbconv.c.o"
-  "tpbconv.pdb"
+  "CMakeFiles/tpbconv.dir/tpbconv.c.o.d"
   "tpbconv"
+  "tpbconv.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

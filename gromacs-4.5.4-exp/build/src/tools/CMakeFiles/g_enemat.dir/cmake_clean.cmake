@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_enemat.dir/g_enemat.c.o"
-  "g_enemat.pdb"
+  "CMakeFiles/g_enemat.dir/g_enemat.c.o.d"
   "g_enemat"
+  "g_enemat.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

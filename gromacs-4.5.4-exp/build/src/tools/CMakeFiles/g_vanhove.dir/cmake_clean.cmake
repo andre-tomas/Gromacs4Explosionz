@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_vanhove.dir/g_vanhove.c.o"
-  "g_vanhove.pdb"
+  "CMakeFiles/g_vanhove.dir/g_vanhove.c.o.d"
   "g_vanhove"
+  "g_vanhove.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

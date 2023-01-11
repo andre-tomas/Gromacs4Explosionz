@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_mdmat.dir/g_mdmat.c.o"
-  "g_mdmat.pdb"
+  "CMakeFiles/g_mdmat.dir/g_mdmat.c.o.d"
   "g_mdmat"
+  "g_mdmat.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

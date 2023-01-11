@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_anaeig.dir/g_anaeig.c.o"
-  "g_anaeig.pdb"
+  "CMakeFiles/g_anaeig.dir/g_anaeig.c.o.d"
   "g_anaeig"
+  "g_anaeig.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

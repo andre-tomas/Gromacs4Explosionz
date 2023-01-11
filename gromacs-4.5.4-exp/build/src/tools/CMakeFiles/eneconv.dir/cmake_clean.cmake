@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/eneconv.dir/eneconv.c.o"
-  "eneconv.pdb"
+  "CMakeFiles/eneconv.dir/eneconv.c.o.d"
   "eneconv"
+  "eneconv.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_tune_pme.dir/g_tune_pme.c.o"
-  "g_tune_pme.pdb"
+  "CMakeFiles/g_tune_pme.dir/g_tune_pme.c.o.d"
   "g_tune_pme"
+  "g_tune_pme.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

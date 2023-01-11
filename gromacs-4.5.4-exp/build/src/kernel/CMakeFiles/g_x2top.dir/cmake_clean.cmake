@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_x2top.dir/g_x2top.c.o"
-  "g_x2top.pdb"
+  "CMakeFiles/g_x2top.dir/g_x2top.c.o.d"
   "g_x2top"
+  "g_x2top.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

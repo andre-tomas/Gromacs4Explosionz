@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_dipoles.dir/g_dipoles.c.o"
-  "g_dipoles.pdb"
+  "CMakeFiles/g_dipoles.dir/g_dipoles.c.o.d"
   "g_dipoles"
+  "g_dipoles.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

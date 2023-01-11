@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_angle.dir/g_angle.c.o"
-  "g_angle.pdb"
+  "CMakeFiles/g_angle.dir/g_angle.c.o.d"
   "g_angle"
+  "g_angle.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

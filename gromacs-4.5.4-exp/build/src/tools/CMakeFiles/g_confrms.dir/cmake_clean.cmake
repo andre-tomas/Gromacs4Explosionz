@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_confrms.dir/g_confrms.c.o"
-  "g_confrms.pdb"
+  "CMakeFiles/g_confrms.dir/g_confrms.c.o.d"
   "g_confrms"
+  "g_confrms.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

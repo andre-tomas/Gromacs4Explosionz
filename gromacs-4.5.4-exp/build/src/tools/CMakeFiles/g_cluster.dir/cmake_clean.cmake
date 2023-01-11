@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_cluster.dir/g_cluster.c.o"
-  "g_cluster.pdb"
+  "CMakeFiles/g_cluster.dir/g_cluster.c.o.d"
   "g_cluster"
+  "g_cluster.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

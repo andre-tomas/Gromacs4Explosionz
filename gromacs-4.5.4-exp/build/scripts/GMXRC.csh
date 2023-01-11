@@ -70,10 +70,10 @@ setenv MANPATH $tmppath
 # things in separate vars, so we can remove them later.
 # If you move gromacs, change the next four line.
 ##########################################################
-setenv GMXBIN /home/ibrahim/programs/gromacs-4.5.4-explosion/bin
-setenv GMXLDLIB /home/ibrahim/programs/gromacs-4.5.4-explosion/lib
-setenv GMXMAN /home/ibrahim/programs/gromacs-4.5.4-explosion/share/man
-setenv GMXDATA /home/ibrahim/programs/gromacs-4.5.4-explosion/share/gromacs
+setenv GMXBIN /home/tomas/programs/gromacs-4.5.4-explosion/bin
+setenv GMXLDLIB /home/tomas/programs/gromacs-4.5.4-explosion/lib
+setenv GMXMAN /home/tomas/programs/gromacs-4.5.4-explosion/share/man
+setenv GMXDATA /home/tomas/programs/gromacs-4.5.4-explosion/share/gromacs
 
 #make them begin with :
 if ($?LD_LIBRARY_PATH) setenv LD_LIBRARY_PATH ":${LD_LIBRARY_PATH}"

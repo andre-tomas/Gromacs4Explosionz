@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_polystat.dir/g_polystat.c.o"
-  "g_polystat.pdb"
+  "CMakeFiles/g_polystat.dir/g_polystat.c.o.d"
   "g_polystat"
+  "g_polystat.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

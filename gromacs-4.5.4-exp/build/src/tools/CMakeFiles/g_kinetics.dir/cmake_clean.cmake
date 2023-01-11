@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_kinetics.dir/g_kinetics.c.o"
-  "g_kinetics.pdb"
+  "CMakeFiles/g_kinetics.dir/g_kinetics.c.o.d"
   "g_kinetics"
+  "g_kinetics.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

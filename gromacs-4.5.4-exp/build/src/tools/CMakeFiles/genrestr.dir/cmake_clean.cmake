@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/genrestr.dir/genrestr.c.o"
-  "genrestr.pdb"
+  "CMakeFiles/genrestr.dir/genrestr.c.o.d"
   "genrestr"
+  "genrestr.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

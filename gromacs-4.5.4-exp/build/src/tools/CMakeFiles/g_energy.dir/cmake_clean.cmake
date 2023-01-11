@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_energy.dir/g_energy.c.o"
-  "g_energy.pdb"
+  "CMakeFiles/g_energy.dir/g_energy.c.o.d"
   "g_energy"
+  "g_energy.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

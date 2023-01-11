@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/mk_angndx.dir/mk_angndx.c.o"
-  "mk_angndx.pdb"
+  "CMakeFiles/mk_angndx.dir/mk_angndx.c.o.d"
   "mk_angndx"
+  "mk_angndx.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

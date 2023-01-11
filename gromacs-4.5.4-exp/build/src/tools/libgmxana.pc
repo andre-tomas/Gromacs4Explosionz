@@ -1,12 +1,12 @@
-libdir=/home/ibrahim/programs/gromacs-4.5.4-explosion/lib
-includedir=/home/ibrahim/programs/gromacs-4.5.4-explosion/include
+libdir=/home/tomas/programs/gromacs-4.5.4-explosion/lib
+includedir=/home/tomas/programs/gromacs-4.5.4-explosion/include
 
 Name: libgmxana
 Description: Gromacs analysis lib
 URL: http://www.gromacs.org
 Version: 4.5.4
 Requires:  libgmx libmd
-Libs.private: -lm -lpthread
+Libs.private: -lm 
 Libs: -L${libdir} -lgmxana
-Cflags: -I${includedir}  -DGMX_SOFTWARE_INVSQRT -DGMX_THREADS
+Cflags: -I${includedir}  -DGMX_SOFTWARE_INVSQRT -DGMX_THREADS -DGMX_INTERNAL_XDR
 

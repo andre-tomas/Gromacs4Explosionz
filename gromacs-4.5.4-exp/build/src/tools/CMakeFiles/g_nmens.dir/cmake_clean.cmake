@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_nmens.dir/g_nmens.c.o"
-  "g_nmens.pdb"
+  "CMakeFiles/g_nmens.dir/g_nmens.c.o.d"
   "g_nmens"
+  "g_nmens.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

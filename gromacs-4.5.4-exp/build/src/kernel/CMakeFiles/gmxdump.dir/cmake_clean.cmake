@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/gmxdump.dir/gmxdump.c.o"
-  "gmxdump.pdb"
+  "CMakeFiles/gmxdump.dir/gmxdump.c.o.d"
   "gmxdump"
+  "gmxdump.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

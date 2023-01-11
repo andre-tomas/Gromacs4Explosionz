@@ -49,10 +49,10 @@ MANPATH=$tmppath
 # things in separate vars, so we can remove them later.
 # If you move gromacs, change the next four line.
 ##########################################################
-GMXBIN=/home/ibrahim/programs/gromacs-4.5.4-explosion/bin
-GMXLDLIB=/home/ibrahim/programs/gromacs-4.5.4-explosion/lib
-GMXMAN=/home/ibrahim/programs/gromacs-4.5.4-explosion/share/man
-GMXDATA=/home/ibrahim/programs/gromacs-4.5.4-explosion/share/gromacs
+GMXBIN=/home/tomas/programs/gromacs-4.5.4-explosion/bin
+GMXLDLIB=/home/tomas/programs/gromacs-4.5.4-explosion/lib
+GMXMAN=/home/tomas/programs/gromacs-4.5.4-explosion/share/man
+GMXDATA=/home/tomas/programs/gromacs-4.5.4-explosion/share/gromacs
 	
 LD_LIBRARY_PATH=${GMXLDLIB}${LD_LIBRARY_PATH:+:}${LD_LIBRARY_PATH}
 PKG_CONFIG_PATH=${GMXLDLIB}/pkgconfig${PKG_CONFIG_PATH:+:}${PKG_CONFIG_PATH}

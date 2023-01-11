@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_rotacf.dir/g_rotacf.c.o"
-  "g_rotacf.pdb"
+  "CMakeFiles/g_rotacf.dir/g_rotacf.c.o.d"
   "g_rotacf"
+  "g_rotacf.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

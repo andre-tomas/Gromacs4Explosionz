@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_options.dir/g_options.c.o"
-  "g_options.pdb"
+  "CMakeFiles/g_options.dir/g_options.c.o.d"
   "g_options"
+  "g_options.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

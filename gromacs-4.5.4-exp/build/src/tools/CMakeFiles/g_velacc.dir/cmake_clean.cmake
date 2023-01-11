@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_velacc.dir/g_velacc.c.o"
-  "g_velacc.pdb"
+  "CMakeFiles/g_velacc.dir/g_velacc.c.o.d"
   "g_velacc"
+  "g_velacc.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

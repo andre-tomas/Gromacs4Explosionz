@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_sigeps.dir/g_sigeps.c.o"
-  "g_sigeps.pdb"
+  "CMakeFiles/g_sigeps.dir/g_sigeps.c.o.d"
   "g_sigeps"
+  "g_sigeps.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

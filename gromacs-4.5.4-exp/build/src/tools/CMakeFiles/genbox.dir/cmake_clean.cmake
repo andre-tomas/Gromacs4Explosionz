@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/genbox.dir/genbox.c.o"
-  "genbox.pdb"
+  "CMakeFiles/genbox.dir/genbox.c.o.d"
   "genbox"
+  "genbox.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_analyze.dir/g_analyze.c.o"
-  "g_analyze.pdb"
+  "CMakeFiles/g_analyze.dir/g_analyze.c.o.d"
   "g_analyze"
+  "g_analyze.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

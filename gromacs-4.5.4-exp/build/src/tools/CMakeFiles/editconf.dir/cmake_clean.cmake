@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/editconf.dir/editconf.c.o"
-  "editconf.pdb"
+  "CMakeFiles/editconf.dir/editconf.c.o.d"
   "editconf"
+  "editconf.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_helixorient.dir/g_helixorient.c.o"
-  "g_helixorient.pdb"
+  "CMakeFiles/g_helixorient.dir/g_helixorient.c.o.d"
   "g_helixorient"
+  "g_helixorient.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

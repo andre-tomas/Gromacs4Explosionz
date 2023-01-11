@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/trjcat.dir/trjcat.c.o"
-  "trjcat.pdb"
+  "CMakeFiles/trjcat.dir/trjcat.c.o.d"
   "trjcat"
+  "trjcat.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

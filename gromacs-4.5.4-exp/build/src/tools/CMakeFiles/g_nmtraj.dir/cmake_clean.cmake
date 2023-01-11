@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_nmtraj.dir/g_nmtraj.c.o"
-  "g_nmtraj.pdb"
+  "CMakeFiles/g_nmtraj.dir/g_nmtraj.c.o.d"
   "g_nmtraj"
+  "g_nmtraj.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

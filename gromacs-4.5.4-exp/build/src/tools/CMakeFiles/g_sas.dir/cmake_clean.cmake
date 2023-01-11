@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/g_sas.dir/g_sas.c.o"
-  "g_sas.pdb"
+  "CMakeFiles/g_sas.dir/g_sas.c.o.d"
   "g_sas"
+  "g_sas.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

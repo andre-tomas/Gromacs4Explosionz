@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/trjconv.dir/trjconv.c.o"
-  "trjconv.pdb"
+  "CMakeFiles/trjconv.dir/trjconv.c.o.d"
   "trjconv"
+  "trjconv.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

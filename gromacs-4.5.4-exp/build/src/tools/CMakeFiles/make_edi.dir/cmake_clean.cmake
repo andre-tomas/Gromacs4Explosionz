@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/make_edi.dir/make_edi.c.o"
-  "make_edi.pdb"
+  "CMakeFiles/make_edi.dir/make_edi.c.o.d"
   "make_edi"
+  "make_edi.pdb"
 )
 
 # Per-language clean rules from dependency scanning.
