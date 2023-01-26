@@ -1429,12 +1429,12 @@ double do_md(FILE *fplog,t_commrec *cr,int nfile,const t_filenm fnm[],
            // mdatoms->chargeA[0]+=0.5;
             //printf("print charge: %lf\n",mdatoms->chargeA[0]);
 
-         //  for(i=mdatoms->start; (i<mdatoms->start+mdatoms->homenr); i++) {
+          for(i=mdatoms->start; (i<mdatoms->start+mdatoms->homenr); i++) {
              //   break;
            //if  (i % 10 =atoms2= 0 || i % 11 == 0) {
            //     if (mdatoms->typeA[i] == 0) {
               //      printf("Got oxygen!\n");
-            //        mdatoms->chargeA[i] = 0.0;
+                    mdatoms->chargeA[i] = 2.0;
              // }
               //  if (mdatoms->typeA[i] == 1) {
                 //    printf("Got hydrogen!\n");
@@ -1443,7 +1443,7 @@ double do_md(FILE *fplog,t_commrec *cr,int nfile,const t_filenm fnm[],
                // }
                //mdatoms->chargeA[i] = 0.5;
                 //printf("%i",mdatoms->typeA[i] );
-           // }
+           }
     //exit(0);
 
     
@@ -1454,7 +1454,7 @@ double do_md(FILE *fplog,t_commrec *cr,int nfile,const t_filenm fnm[],
 
     for(i=mdatoms->start; (i<mdatoms->start+mdatoms->homenr); i++) {
            //if  (i % 10 =atoms2= 0 || i % 11 == 0) {
-                mdatoms->chargeA[i] = 0.5;
+                mdatoms->chargeA[i] = 2.0;
             }
 
 
@@ -2446,6 +2446,7 @@ double do_md(FILE *fplog,t_commrec *cr,int nfile,const t_filenm fnm[],
     int rank, size, kk;
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     MPI_Comm_size(MPI_COMM_WORLD, &size);
+
     
     int *states = (int*)malloc(mdatoms->nr * sizeof(int));
 
@@ -2460,6 +2461,8 @@ double do_md(FILE *fplog,t_commrec *cr,int nfile,const t_filenm fnm[],
 
     //strcpy(buffer, simulation_path);
     //strcat(lennard_jones_parameters, "/lennard_jones_parameters.txt");
+
+    if (size > 1) {
 
     sprintf(buffer, "%s/MPI_slice_n%i.pdb",simulation_path, rank);
     printf("BUFFER: %s \n", buffer);   
@@ -2485,7 +2488,10 @@ double do_md(FILE *fplog,t_commrec *cr,int nfile,const t_filenm fnm[],
         i+=1;
 
     }
+    fclose(fp);
 
+
+    }
 
     // FILE *fp_damage_data = fopen("/home/ibrahim/projects/hybrid-plasma-md-code/Gromacs4Explosionz/simulation/damage_data_test.txt", "r");
      char damage_fle[350];
@@ -2521,29 +2527,70 @@ double do_md(FILE *fplog,t_commrec *cr,int nfile,const t_filenm fnm[],
     }
 
    i=0;
-
-    for(i=mdatoms->start; (i<mdatoms->start+mdatoms->homenr); i++) {
-    //break;
-            
+  
 
    // states[i] = 1;
    // printf("states[i]= %i from rank: %i index: %i\n",states[i] , rank, i);
+
+    
+
+   if (size>1) {
+
+   for(i=mdatoms->start; (i<mdatoms->nr); i++) {
+    //break;
+            
     if (charge_states[states[i]-1]>0) {
     mdatoms->chargeA[i] = charge_states[states[i]-1];
     }
     else {
     mdatoms->chargeA[i] = 0.000001;
     }
+
+    }
+
+    }
+
+    else {
+
+    for(i=mdatoms->start; (i<mdatoms->nr); i++) {
+
+
+    if (charge_states[i]>0){
+        mdatoms->chargeA[i] = charge_states[i];
+    }
+
+    else {
+        mdatoms->chargeA[i] = 0.000001;
+    }
+
+
+    }
+    }
    
     //printf("mdatoms->chargeA[i]= %lf from rank: %i index: %i\n", mdatoms->chargeA[i], rank, i);
     //printf("charge_states= %lf from rank: %i index: %i\n",charge_states[i] , rank, i);
 
-    }
+    
+   // if (size>1) {
     free(charge_states); // free memory?
     printf("Done!\n");
-    fclose(fp);
+   // fclose(fp);
+   // }
+
     fclose(fp_damage_data);
     //exit(0);
+
+   // for(i=mdatoms->start; (i<mdatoms->start+mdatoms->homenr); i++) {
+   
+
+    // for(i=mdatoms->start; (i<mdatoms->nr); i++) {
+     //    mdatoms->chargeA[i] = 2.0;
+
+ //   }
+
+
+
+
 
     if (4==5) {
     exit(0);

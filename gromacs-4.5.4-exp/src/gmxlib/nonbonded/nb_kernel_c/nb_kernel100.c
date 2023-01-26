@@ -103,13 +103,16 @@ void nb_kernel100(
     crf              = *p_crf;         
     tabscale         = *p_tabscale;    
 
+
     /* Reset outer and inner iteration counters */
     nouter           = 0;              
     ninner           = 0;              
    // printf("DEBYE LENGTH IN LJ nbkernel100.c: %lf\n", debye_length);
     /* Loop over thread workunits */
 
-	debye_length = 1000;
+	//debye_length = 1000;
+	double r_times_debye_inverse;
+	double debye_inverse = 1/debye_length;
     
     do
     {
@@ -189,9 +192,11 @@ void nb_kernel100(
 
                 /* Coulomb interaction */
                 //vcoul            = qq*rinv11;   old Coulomb
-				vcoul            = qq*rinv11*((r + debye_length)/(debye_length))*exp((-r)/debye_length);      
+				r_times_debye_inverse = r*debye_inverse; // we do this calculation multiple times, so save it in a variable 
+
+				vcoul            = qq*rinv11*exp((-r_times_debye_inverse)); //qq*rinv11*(r_times_debye_inverse + 1)*exp((-r_times_debye_inverse));      
                 vctot            = vctot+vcoul;    
-                fscal            = (vcoul)*rinvsq; 
+                fscal            = vcoul*(r_times_debye_inverse + 1)*rinvsq;  //(vcoul)*rinvsq; 
 
                 /* Calculate temporary vectorial force */
                 tx               = fscal*dx11;     

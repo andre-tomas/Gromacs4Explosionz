@@ -579,10 +579,10 @@ void do_nonbonded(t_commrec *cr,t_forcerec *fr,
                     {
                         /* Call nonbonded kernel from function pointer */
                         
-						printf("CALLING POINTER!!\n");
+						//printf("CALLING POINTER!!\n");
 						//exit(0);
 
-                        nb_kernel110( &(nlist->nri),
+                        nb_kernel110(&(nlist->nri),
                                       nlist->iinr,
                                       nlist->jindex,
                                       nlist->jjnr,

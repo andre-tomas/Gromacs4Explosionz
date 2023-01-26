@@ -53,32 +53,33 @@ double *epsilon_array;
 double *sigma_array;
 int *ATOM_Z;
 
-float poly3(float p1, float p2, float p3, float p4, int x)
+double poly3(double p1, double p2, double p3, double p4, double x)
 {
-    return p1 * pow(x, 3) + p2 * pow(x, 2) + p3 * x + p4;
+    return p1 * pow(x, 3.0) + p2 * pow(x, 2.0) + p3 * x + p4;
 };
 
-float poly1(float p1, float p2, int x)
+double poly1(double p1, double p2, double x)
 {
-    return (x == 0) ? 0.0 : p1 * x + p2;
+    return (x == 0.0) ? 0.0 : p1 * x + p2;
 };
 
-float scaleRmin(int Z, int charge)
+double scaleRmin(int Z, double charge)
 {
-    int e = Z - charge;
-    float p1 = 0;
-    float p2 = 0;
-    float p3 = 0;
-    float p4 = 0;
+	double Z_double = (double)Z;
+    double e = Z_double - charge;
+    double p1 = 0.0;
+    double p2 = 0.0;
+    double p3 = 0.0;
+    double p4 = 0.0;
 
     switch (Z)
     {
 
  	case 1:
-        p1 = 0;
-        p2 = 0;
-        p3 = 0;
-        p4 = 1;
+        p1 = 0.0;
+        p2 = 0.0;
+        p3 = 0.0;
+        p4 = 1.0;
         break;
     case 6:
         p1 = 0.004985;
@@ -120,16 +121,18 @@ float scaleRmin(int Z, int charge)
     return poly3(p1, p2, p3, p4, e);
 };
 
-float scaleEpsilon(int Z, int charge)
+double scaleEpsilon(int Z, double charge)
 {
-    int e = Z - charge;
-    float p1 = 0;
-    float p2 = 0;
+
+	double Z_double = (double)Z;
+    double e = Z_double - charge;
+    double p1 = 0.0;
+    double p2 = 0.0;
     switch (Z)
     {
 	case 1:
-        p1 = 0;
-        p2 = 1;
+        p1 = 0.0;
+        p2 = 1.0;
         break;
     case 6:
         p1 = 0.1096;
@@ -228,6 +231,8 @@ void nb_kernel110(
 	double epsilon1;
 	double sigma2;
 	double epsilon2;
+	double r_times_debye_inverse;
+	double sigma3;
 
     /* Reset outer and inner iteration counters */
     nouter           = 0;              
@@ -239,7 +244,8 @@ void nb_kernel110(
 // printf("c6[i]= %lf,c12[i]= %lf, ATOM_Z[i]= %i \n",sigma_array[1],epsilon_array[1],ATOM_Z[1]);
 
 	//exit(0);
-	debye_length = 1000;
+	//debye_length = 1000;
+	double debye_inverse = 1/debye_length;
     
     do
     {
@@ -300,10 +306,6 @@ void nb_kernel110(
 			sigma1 = (sigma_array[type[ii]])*scaleRmin(ATOM_Z[type[ii]], floor(charge[ii]));
 			epsilon1 = (epsilon_array[type[ii]]) * scaleEpsilon(ATOM_Z[type[ii]], floor(charge[ii]));
 
-			//printf("sigma1: %6.4lf, atomz: %i, charge: %lf \n", sigma1,ATOM_Z[type[ii]], charge[ii]);
-			//printf("epsilon1: %6.4lf\n", epsilon1);
-
-			//exit(0);
             for(k=nj0; (k<nj1); k++)
             {
 
@@ -333,17 +335,19 @@ void nb_kernel110(
                 c12              = vdwparam[tj+1]; 
                 rinvsq           = rinv11*rinv11;
 
-				//printf("TYPE1: %i, TYPE2: %i, LJ PARAM inN nbkernel110.c: c6 : %lf, c12 : %lf\n",type[ii],type[jnr], c6, c12); 
-
                 /* Coulomb interaction */
-                //vcoul            = qq*rinv11;   
-				vcoul            = qq*rinv11*((r + debye_length)/(debye_length))*exp((-r)/debye_length);   
+                //vcoul            = qq*rinv11;
+				r_times_debye_inverse = r*debye_inverse; // we do this calculation multiple times, so save it in a variable 
+
+				vcoul 			   = qq*rinv11*exp((-r_times_debye_inverse));    //qq*rinv11*exp((-r)*debye_inverse);   
+				//vcoul            = qq*rinv11*((r + debye_length)/(debye_length))*exp((-r)/debye_length);   
 				//fscal            = vcoul*rinvsq*((r + debye_length)/(debye_length));           
                 vctot            = vctot+vcoul;    
 
-            	/* Calculate new sigma and epsilon based on charge and atomic number Z */
+            	/* Calculate new sigma and epsilon for Lennard Jones interaction based on charge and atomic number Z */
 			
 				if ( (ATOM_Z[type[jnr]]==1 && charge[jnr] == 1) || (ATOM_Z[type[ii]]==1 && charge[ii] ==1))	{
+					// if at least one of the atoms is hydrogen, and its charge is +1, then we do not compute LJ interaction 
 
 					c6 = 0;
 					c12 = 0;
@@ -365,42 +369,49 @@ void nb_kernel110(
 					epsilons = pow(epsilon1*epsilon2, 0.5);
 				}
 				
-				sigma6 = pow(sigmas, 6);
+				//sigma6 = pow(sigmas, 6.0);
+				sigma3 = sigmas*sigmas*sigmas;
+			    sigma6 = sigma3*sigma3;//sigmas*sigmas*sigmas*sigmas*sigmas*sigmas;
 				c6 = 4*epsilons*sigma6;
-				c12 = 4*epsilons*sigma6*sigma6; // write c12 = c6*sigma6
+				c12 = c6*sigma6; // 4*epsilons*sigma6*sigma6; // write c12 = c6*sigma6
 
 				}
-
-				//printf("c6: %lf, c12: %lf, chargeii: %lf, chargejnr: %lf, chargeii: %lf, chargejnr: %lf \n", c6, c12, charge[ii], charge[jnr], floor(charge[ii]), floor(charge[jnr]));
-	
-				c6 = 0;
-				c12 = 0;
-
-				//sigma_array[type[ii]],epsilon_array[type[ii]],ATOM_Z[type[ii]];
-				//sigma_array[type[jnr]],epsilon_array[type[jnr]],ATOM_Z[type[jnr]];
-
-				//printf("TYPE1: %i, TYPE2: %i, LJ PARAM inN nbkernel110.c: c6 : %lf, c12 : %lf\n",type[ii],type[jnr], c6, c12); 
-
-                /* Lennard-Jones interaction */
-				if (c6 > 0) {
-                rinvsix          = rinvsq*rinvsq*rinvsq;
+				
+				rinvsix          = rinvsq*rinvsq*rinvsq;
                 Vvdw6            = c6*rinvsix;     
                 Vvdw12           = c12*rinvsix*rinvsix;
-                Vvdwtot          = Vvdwtot+Vvdw12-Vvdw6;
+                Vvdwtot          = Vvdwtot+(Vvdw12-Vvdw6)*exp(-r_times_debye_inverse); // sum LJ potential
+
+                /* Lennard-Jones interaction */
+				if (c6 > 0 || c12 > 0) {
+
+                //rinvsix          = rinvsq*rinvsq*rinvsq;
+                //Vvdw6            = c6*rinvsix;     
+                //Vvdw12           = c12*rinvsix*rinvsix;
+                //Vvdwtot          = Vvdwtot+Vvdw12-Vvdw6;
+
                 //fscal            = (vcoul+12.0*Vvdw12-6.0*Vvdw6)*rinvsq;
-                fscal            = (vcoul+12.0*Vvdw12-6.0*Vvdw6)*rinvsq;
+               // fscal            = (vcoul+12.0*Vvdw12-6.0*Vvdw6)*rinvsq;
+				//fscal 			 = (vcoul*(r*inverse_debye_length + 1)+12.0*Vvdw12-6.0*Vvdw6)*rinvsq;
+				
+				fscal = vcoul*(r_times_debye_inverse+1)*rinvsq-1*(c12*((-1*(rinvsix*rinvsix))*debye_inverse-12*rinvsix*rinvsix*rinv11)+c6*(rinvsix*debye_inverse+ 6*rinvsix*rinv11))*exp(-r_times_debye_inverse)*rinv11; 
+
+				//fscal = vcoul*(r_times_debye_inverse+1)*rinvsq + (c12*(rinvsix*rinvsix*debye_inverse + 12*rinvsix*rinvsix*rinv11) + c6*(-rinvsix*debye_inverse-6*rinvsix*rinv11))*exp(-r_times_debye_inverse)*rinv11;
+
+				//fscal = vcoul*(r_times_debye_inverse+1)*rinvsq + ((-exp(-r_times_debye_inverse)*(c6*rsq11*rsq11*rsq11*(6*debye_length+r)+c12*(-12*debye_length-r)))*debye_inverse*rinvsix*rinvsix)*rinvsq; // is this faster, less divisions?
 
 				}
 				else {
      
-                Vvdwtot          = 0;
+                //Vvdwtot          = 0;
                 //fscal            = (vcoul+12.0*Vvdw12-6.0*Vvdw6)*rinvsq;
-                fscal            = (vcoul)*rinvsq;
+                //fscal            = (vcoul)*rinvsq;
+				fscal  			 = vcoul*(r_times_debye_inverse + 1)*rinvsq;
 			
 				}
 
-       		    //printf("LJ PARAM inN nbkernel110.c: c6 : %lf, c12 : %lf\n", c6, c12);
-
+				// !! Note: for the forces, we multiply with an extra 1/r because of the direction of the force !! //
+			
                 /* Calculate temporary vectorial force */
                 tx               = fscal*dx11;     
                 ty               = fscal*dy11;     

@@ -1,0 +1,20 @@
+;
+;	File 'topol.top' was generated
+;	By user: tomas (1000)
+;	On host: laptop-tomas
+;	At date: Wed Oct 19 09:29:10 2022
+
+; Include forcefield parameters
+#include "forcefield.itp"
+
+; Include water topology
+#include "spce.itp"
+
+
+[ system ]
+; Name
+Written by MDAnalysis
+
+[ molecules ]
+; Compound        #mols
+SOL             276602
